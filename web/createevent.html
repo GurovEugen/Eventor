@@ -1,0 +1,58 @@
+﻿<html>
+	<head>
+		<title>Регистрация</title>
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="styles/createevent.css">
+		<script src="createevent.js"></script>
+		<script src="main.js"></script>
+	</head>
+	
+	<body onload = "retrieveGroups();showOptions();">
+		<header>
+			<div class="divHeader">
+				<img class="eventorLogo" src="images/logo.png" />
+				<a title="Войти" class="AuthButtonHeader" href="auth.html">
+					<img class="AuthLogo" src="images/Entrance.png" />
+				</a>
+			</div>
+		</header>
+		
+		<div id="centerBlock">
+			<h1 id="titleDiv" >Добавить событие</h1>
+				<table id="tableReg">
+					<tr>
+						<h3>Имя события: <input id = "name" type = "text">	</h3>
+
+					</tr>
+					
+					<tr>
+						<h3>Место события: <input id = "place" type = "text"></h3>
+
+					</tr>
+					<tr>
+						<h3>Информация о событии</h3>
+						<textarea id = "info" ></textarea>
+					</tr>
+					<tr>
+						<h3>Дата начала: <input id = "startDate" type = "text"></h3>
+
+					</tr>
+					<tr>
+						<h3>Дата окончания: <input id = "endDate" type = "text"></h3>
+
+					</tr>
+
+					<tr>
+						<h3>Тип события: <select id = "selectGroup"></select></h3>
+					</tr>
+					</br>	
+					</br>
+					</br>
+					<tr>
+						<input value = "Добавить событие" type = "button" onclick = "sendEvent();">
+					</tr>
+				</table>
+		</div>
+	</body>
+
+</html>

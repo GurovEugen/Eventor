@@ -1,0 +1,46 @@
+﻿<html>
+	<head>
+		<title>Список событий</title>
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
+		<script src="main.js"></script>
+	</head>
+    
+    
+
+
+	<body onload="retrieveEvents();showAllEvents();retrieveGroups();showFilter();">
+		<header>
+			<div class="divHeader">
+				<img class="eventorLogo" src="images/logo.png" />
+				<a title="Войти" class="AuthButtonHeader" href="auth.html">
+					<img class="AuthLogo" src="images/Entrance.png" />
+				</a>
+			</div>
+		</header>
+		<ul id="navbar">
+        	<li><a onclick="showAllEvents();">Все</a></li>
+			<li><a onclick="">Текущие</a></li>
+        </ul>
+
+
+		<div id="centerBlock">
+			<h1 id="titleDiv" ></h1>
+				<table id="tableReg">
+					<tr>
+                        <th><h3>Событие</h3></th>
+                        <th><h3>Место</h3></th>
+						<th><h3>Дата начала</h3></th>
+						<th><h3>Дата окончания</h3></th>
+					</tr>
+
+                </table>
+			</br>
+			</br>
+			</br>
+			<img class="addEvent" src="images/add.png" onclick=" toNewEvent();" width="100" />
+        </div>
+
+	</body>
+
+</html>
