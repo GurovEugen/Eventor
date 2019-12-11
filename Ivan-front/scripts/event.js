@@ -8,7 +8,11 @@ function load_page() {
     const eventInfo = document.getElementById('eventInfo');
     eventInfo.innerHTML = 'Информация: ' + getEventInfo();
     const eventData = document.getElementById('eventData');
-    eventData.innerHTML = 'Время: ' + getEventDate();
+    eventData.innerHTML = 'Время: ' + getStartEventDate() + " - " + getEndEventDate();
     const eventPlace = document.getElementById('eventPlace');
     eventPlace.innerHTML = 'Место: ' + getEventPlace();
+    const eventStatus = document.getElementById('eventStatus');
+    eventStatus.innerHTML = 'Статус: ' + getEventStatus();
+    const eventGroup = document.getElementById('eventGroup');
+    eventGroup.innerHTML = 'Группа: ' + getEventGroup();
 };

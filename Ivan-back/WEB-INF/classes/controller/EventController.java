@@ -1,3 +1,10 @@
+import org.json.JSONException;
+import org.json.JSONObject;
+import sun.text.normalizer.ICUData;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.io.Serializable;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -19,10 +26,69 @@ public class EventController implements Serializable {
 	@Inject
     private SelectedEvent SE;
 
+    @Inject
+    private SelectedGroup SG;
+
+    @Inject
+    private Event event;
+
+    @Inject
+    private Group group;
+
+
+
    @GET
    @Produces(MediaType.APPLICATION_JSON)
-   public Event getEvent(@QueryParam("id") Integer id) {
+   public String getEvent(@QueryParam("id") Integer id) {
 
-	   return SE.getEventById(id);
+        JSONObject eventJson = new JSONObject();
+        event = SE.getEventById(id);
+        group = SG.getGroupById(event.getGroupId());
+        String startDate = event.getStartDate();
+        String endDate = event.getEndDate();
+        String status = "Нет данных";
+        Date sDate = null;
+        Date eDate = null;
+        Date cDate = null;
+        try {
+            sDate = new SimpleDateFormat("dd.MM.yyyy").parse(startDate);
+            eDate = new SimpleDateFormat("dd.MM.yyyy").parse(endDate);
+            cDate = new Date();
+        }
+        catch (ParseException ex){
+
+
+        }
+
+        if(sDate.getTime() <= cDate.getTime() && cDate.getTime() <= eDate.getTime())
+        {
+            status = "Текущее";
+        }
+        else if (sDate.getTime() > cDate.getTime())
+        {
+            status = "Не началось";
+        }
+        else
+        {
+            status = "Закончено";
+        }
+       try {
+            eventJson.put("name",event.getName());
+            eventJson.put("startDate",event.getStartDate());
+            eventJson.put("endDate",event.getEndDate());
+            eventJson.put("place",event.getPlace());
+            eventJson.put("info",event.getInfo());
+            eventJson.put("groupName",group.getName());
+            eventJson.put("status",status);
+        }
+
+        catch (JSONException ex)
+        {
+
+
+        }
+
+
+        return eventJson.toString();
    }
 }

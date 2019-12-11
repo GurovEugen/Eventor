@@ -15,8 +15,10 @@ public class Event implements Serializable
   private Integer id;
   @Column(name = "\"name\"")
   private String name;
-  @Column(name = "\"date\"")
-  private String date;
+  @Column(name = "\"start_date\"")
+  private String startDate;
+  @Column(name = "\"end_date\"")
+  private String endDate;
   @Column(name = "\"info\"")
   private String info;
   @Column(name = "\"place\"")
@@ -50,12 +52,20 @@ public class Event implements Serializable
     groupId = sGroupId;
   } 
   
-  public String getDate() {
-    return date;
+  public String getStartDate() {
+    return startDate;
   }
   
-  public void setDate(String sDate) {
-    date = sDate;
+  public void setStartDate(String sDate) {
+    startDate = sDate;
+  }
+
+  public String getEndDate() {
+    return endDate;
+  }
+
+  public void setEndDate(String sDate) {
+    endDate = sDate;
   }
 
     public String getName() {
