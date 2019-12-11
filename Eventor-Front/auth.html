@@ -3,6 +3,7 @@
 		<title>Авторизация</title>
 		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="styles/auth.css">
+		<script src="scripts/auth.js"></script>
 	</head>
 	
 	<body>
@@ -17,11 +18,11 @@
 		
 		<div id="centerBlock">
 			<h2 id="titleDiv" >Авторизация</h2>
-			<form>
+			<form onsubmit="authFunc(); return false">
 				<table id="tableReg">
 					<tr>
 						<td>Логин:</td>
-						<td><input type="text" id="inputMail" required /></td>
+						<td><input type="text" id="inputLogin" required /></td>
 					</tr>
 					<tr>
 						<td>Пароль:</td>

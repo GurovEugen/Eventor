@@ -1,18 +1,11 @@
-package controller;
-
 import java.io.Serializable;
-
-//JPA (Begin)
 import javax.persistence.*;
-//JPA (End)     
 
 @Entity
 @Table(name = "\"auth\"")
-public class authOperations implements Serializable
-{
-
+public class authOperations implements Serializable {
   @Id
-  @Column(name = "\"id\"")
+  @Column(name = "\"id_user\"")
   private Integer id;
   @Column(name = "\"login\"")
   private String login;
@@ -39,8 +32,8 @@ public class authOperations implements Serializable
     return password;
   }
 
-  public void setPassword(String passs){
-    password = passs;
+  public void setPassword(String pass){
+    password = pass;
   }
 
 }
