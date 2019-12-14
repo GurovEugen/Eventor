@@ -26,11 +26,10 @@ function regFunc(){
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
-			 console.log(this.responseText + "123");
-			 console.log("Все ушло, все круто");
+			 alert(xhttp.responseText);
          }
     };
-    xhttp.open("POST", "http://localhost:8080/eventor/api/reg");
+    xhttp.open("POST", "http://localhost:8080/eventor/api/controller/reg");
     xhttp.setRequestHeader('Content-type', 'application/json;');
 	xhttp.send(sendArr);
 }

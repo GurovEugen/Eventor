@@ -1,3 +1,5 @@
+package controller;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,23 +13,26 @@ import java.io.Serializable;
 
 @SessionScoped
 @Path("/controller")
-public class controller implements Serializable {
+public class Controller implements Serializable {
     @Inject
     private authModel authModelClass;
+    @Inject
+    private regModel regModelClass;
 
     @Path("/reg")
     @POST
     public String regControllerFunc(String response) throws JSONException {
         JSONObject userJson = new JSONObject(response);
-        String password = userJson.getString("password");
-        return "Я твой сервер, а твой пароль " + password;
+        String id = regModelClass.reg(userJson);
+        return id;
     }
 
     @Path("/auth")
     @POST
-    public String authControllerFunc(String response) throws JSONException {
+    public Integer authControllerFunc(String response) throws JSONException {
         JSONObject userJson = new JSONObject(response);
-        String id = authModelClass.auth(userJson);
+        Integer id = authModelClass.auth(userJson);
         return id;
+        //Тут id уже есть, можно добавить tokens
     }
 }

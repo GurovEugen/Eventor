@@ -1,13 +1,15 @@
+package controller;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "\"auth\"")
-public class authOperations implements Serializable {
+public class AuthUser implements Serializable {
   @Id
   @Column(name = "\"id_user\"")
   private Integer id;
-  @Column(name = "\"login\"")
+  @Column(name = "\"login\"", unique = true)
   private String login;
   @Column(name = "\"password\"")
   private String password;

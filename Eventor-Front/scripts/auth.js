@@ -15,7 +15,7 @@ function authFunc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(xhttp.responseText);
+            console.log("Id, который будет записан в ЛокалСтораж: " + xhttp.responseText);
         }
     };
     xhttp.open("POST", "http://localhost:8080/eventor/api/controller/auth");
