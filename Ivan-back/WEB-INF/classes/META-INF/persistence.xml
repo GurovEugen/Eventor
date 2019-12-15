@@ -9,5 +9,8 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
  <persistence-unit name="groupPersistenceUnit">
   <jta-data-source>jdbc/pool</jta-data-source>
  </persistence-unit>
+ <persistence-unit name="userPersistenceUnit">
+  <jta-data-source>jdbc/pool</jta-data-source>
+ </persistence-unit>
 
 </persistence>

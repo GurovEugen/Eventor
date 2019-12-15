@@ -1,5 +1,5 @@
 
-function load_page() {
+function loadEventPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     loadEventData('http://localhost:8080/eventor/api/event?id=' + id);
@@ -15,4 +15,6 @@ function load_page() {
     eventStatus.innerHTML = 'Статус: ' + getEventStatus();
     const eventGroup = document.getElementById('eventGroup');
     eventGroup.innerHTML = 'Группа: ' + getEventGroup();
+
+
 };
