@@ -2,10 +2,6 @@ function showOptions(){
     var select = document.getElementById("selectGroup");
     for (var i = 0; i < groups.length; i++){
         var option = document.createElement("option");
-        //var a = document.createElement("a");
-        // a.innerHTML = groups[i].groupName;
-        //li.onclick = "filterByGroup("+groups[i].groupId+")";
-        //li.append(a);
         option.innerHTML = groups[i].groupName;
         console.log(groups[i].groupName);
         select.append(option);
@@ -22,7 +18,7 @@ function sendEvent(){
     var selectGroup = document.getElementById("selectGroup").value;
 
 
-    var user_id = 1;
+    var user_id = 1//localStorage.getItem('user_id');
     var group_id;
 
     for (var a = 0; a < groups.length; a++) {
@@ -55,6 +51,6 @@ function sendEvent(){
     xhr.open("POST", "http://localhost:8080/Eventor_war_exploded/api/data/setevent",false);
     xhr.setRequestHeader('Content-type', 'application/json;');
     xhr.send(sendArr);
-
+    window.location = "http://localhost:8080/Eventor_war_exploded/main.html";
     console.log(xhr.responseText);
 }

@@ -13,14 +13,17 @@
 		<header>
 			<div class="divHeader">
 				<img class="eventorLogo" src="images/logo.png" />
-				<a title="Войти" class="AuthButtonHeader" href="auth.html">
+				<a title="Выйти" class="AuthButtonHeader" href="auth.html">
 					<img class="AuthLogo" src="images/Entrance.png" />
+				</a>
+				<a title="Профиль" class="AuthButtonHeader" >
+					<img class="AuthLogo" src="images/profile.png" onclick="toUserInfo()" />
 				</a>
 			</div>
 		</header>
 		<ul id="navbar">
         	<li><a onclick="showAllEvents();">Все</a></li>
-			<li><a onclick="">Текущие</a></li>
+			<li><a onclick="currentEvents();">Текущие</a></li>
         </ul>
 
 

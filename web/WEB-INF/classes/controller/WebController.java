@@ -11,8 +11,12 @@ import javax.ws.rs.core.MediaType;
 
 import org.json.*;
 
-import java.util.Collection;
+
 import java.util.List;
+import java.util.Date;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 
 
@@ -82,6 +86,24 @@ public class WebController implements Serializable{
       JSONObject newEv = new JSONObject(newEvent);
 
       return data.setNewEvent(newEv);
+
+   }
+
+   @Path("/date")
+   @GET
+   public String getDate()  {
+
+      Date currentDate = Calendar.getInstance().getTime();
+      DateFormat formatter = new SimpleDateFormat("yyyy,MM,dd");
+      String today = formatter.format(currentDate);
+      try{
+         currentDate = new Date();
+      }
+      catch (Exception e){
+
+      }
+
+      return  today;
 
    }
 
