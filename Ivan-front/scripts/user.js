@@ -4,9 +4,10 @@ function edit() {
     const userLastName = document.getElementById('userLastName');
     userLastName.setAttribute("contenteditable","true");
     const userBirthDate = document.getElementById('userBirthDate');
-    userBirthDate.setAttribute("contenteditable","true");
+    userBirthDate.readOnly = false;
+    //userBirthDate.setAttribute("type","date");
     const userGender = document.getElementById('userGender');
-    userGender.setAttribute("contenteditable","true");
+    //userGender.setAttribute("contenteditable","true");
     const userBio = document.getElementById('userBio');
     userBio.setAttribute("contenteditable","true");
     var edit = document.getElementById("Edit");
@@ -39,9 +40,9 @@ function reset() {
     const userLastName = document.getElementById('userLastName');
     userLastName.setAttribute("contenteditable","false");
     const userBirthDate = document.getElementById('userBirthDate');
-    userBirthDate.setAttribute("contenteditable","false");
+    userBirthDate.readOnly = true;
     const userGender = document.getElementById('userGender');
-    userGender.setAttribute("contenteditable","false");
+    //userGender.setAttribute("contenteditable","false");
     const userBio = document.getElementById('userBio');
     userBio.setAttribute("contenteditable","false");
     var ok = document.getElementById("Ok");
@@ -68,7 +69,7 @@ function reject() {
 function sendUser() {
     const userFirstName = document.getElementById('userFirstName').innerText;
     const userLastName = document.getElementById('userLastName').innerText;
-    const userBirthDate = document.getElementById('userBirthDate').innerText;
+    const userBirthDate = document.getElementById('userBirthDate').value;
     const userGender = document.getElementById('userGender').innerText;
     const userBio = document.getElementById('userBio').innerText;
 
@@ -89,7 +90,8 @@ function sendUser() {
     xhr.open("POST", "http://localhost:8080/eventor/api/user",false);
     xhr.setRequestHeader('Content-type', 'application/json;');
     xhr.send(sendUser);
-    //console.log(xhr.responseText);
+    console.log(xhr.responseText);
+    //console.log(sendUser);
     loadUserPage();
 
 }
@@ -103,7 +105,7 @@ function loadUserPage() {
     const userLastName = document.getElementById('userLastName');
     userLastName.innerHTML = getUserLastName();
     const userBirthDate = document.getElementById('userBirthDate');
-    userBirthDate.innerHTML = getUserBirthDate();
+    userBirthDate.value = getUserBirthDate().substr(0,10);
     const userGender = document.getElementById('userGender');
     userGender.innerHTML = getUserGender();
     const userBio = document.getElementById('userBio');

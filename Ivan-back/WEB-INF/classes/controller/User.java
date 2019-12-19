@@ -1,5 +1,6 @@
 import java.io.Serializable;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ public class User implements Serializable {
     @Column(name = "\"last_name\"")
     private String lastName;
     @Column(name = "\"date_of_birth\"")
-    private String birthDate;
+    private Date birthDate;
     @Column(name = "\"gender\"")
     private String gender;
     @Column(name = "\"bio\"")
@@ -39,9 +40,9 @@ public class User implements Serializable {
 
     public void setLastName(String sLastName) { lastName = sLastName; }
 
-    public String getBirthDate() { return birthDate; }
+    public Date getBirthDate() { return birthDate; }
 
-    public void setBirthDate(String sBirthDate) { birthDate = sBirthDate; }
+    public void setBirthDate(Date sBirthDate) { birthDate = sBirthDate; }
 
     public String getGender() { return gender; }
 

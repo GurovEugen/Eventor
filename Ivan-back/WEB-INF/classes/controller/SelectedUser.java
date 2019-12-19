@@ -1,6 +1,8 @@
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.annotation.Resource;
@@ -47,7 +49,7 @@ public class SelectedUser implements Serializable{
     }
 
     public String editUser(JSONObject User) {
-        String res = "OK";
+        String res = "OK" + User;
         EntityManager entityManager;
 
         try {
@@ -57,11 +59,17 @@ public class SelectedUser implements Serializable{
             editingUser = entityManager.find(User.class,User.getInt("id"));
             editingUser.setFirstName(User.getString("firstName"));
             editingUser.setLastName(User.getString("lastName"));
-            editingUser.setBirthDate(User.getString("birthDate"));
+            res +="1";
+            SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+            isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+            editingUser.setBirthDate(isoFormat.parse(User.getString("birthDate")));
+            res +="2" + new SimpleDateFormat("yyyy-MM-dd").parse(User.getString("birthDate"));
             editingUser.setBio(User.getString("bio"));
             editingUser.setGender(User.getString("gender"));
             entityManager.merge(editingUser);
+            res +="3";
             userTransaction.commit();
+            res +="4";
         }
         catch (Exception e){
             res += "not ok" + e.getMessage();
