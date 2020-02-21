@@ -1,0 +1,68 @@
+﻿<html>
+	<head>
+		<title>Регистрация</title>
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="styles/reg.css">
+		<script src="scripts/reg.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="divHeader">
+				<img class="eventorLogo" src="images/logo.png" />
+				<a title="Войти" class="AuthButtonHeader" href="auth.html">
+					<img class="AuthLogo" src="images/Entrance.png" />
+				</a>
+			</div>
+		</header>
+		
+		<div id="centerBlock">
+			<h2 id="titleDiv" >Регистрация</h2>
+			<form onsubmit="regFunc(); return false">
+				<table id="tableReg">
+					<tr>
+						<td>Имя:</td>
+						<td><input type="text" id="inputName" required /></td>
+					</tr>
+					
+					<tr>
+						<td>Фамилия:</td>
+						<td><input type="text" id="inputSurname" required /></td>
+					</tr>
+					
+					<tr>
+						<td>Логин:</td>
+						<td><input type="text" id="inputLogin" required /></td>
+					</tr>
+					
+					<tr>
+						<td>Пароль:</td>
+						<td><input type="password" id="inputPass" required /></td>
+					</tr>
+					
+					<tr>
+						<td>Пол:</td>
+						<td>
+						Мужской<input type="radio" id="gender" name="gender" value="Мужской" />
+						Женский<input type="radio" id="gender" name="gender" value="Женский" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Дата рождения:</td>
+						<td><input type="date" id="dateOfBirth" required /></td>
+					</tr>
+					
+					<tr>
+						<td>Информация о себе:</td>
+						<td><textarea id="inputBio" required></textarea></td>
+					</tr>
+				</table>
+				<br/><br/>
+				<input type="submit" value="Зарегистрироваться" />
+				<input type="reset" value="Очистить" />
+			</form>
+		</div>
+	</body>
+
+</html>

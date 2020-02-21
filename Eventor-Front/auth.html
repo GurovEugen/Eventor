@@ -1,0 +1,39 @@
+﻿<html>
+	<head>
+		<title>Авторизация</title>
+		<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="styles/auth.css">
+		<script src="scripts/auth.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="divHeader">
+				<img class="eventorLogo" src="images/logo.png" />
+				<a class="AuthButtonHeader" href="reg.html">
+					<img class="AuthLogo" src="images/Reg.png" />
+				</a>
+			</div>
+		</header>
+		
+		<div id="centerBlock">
+			<h2 id="titleDiv" >Авторизация</h2>
+			<form onsubmit="authFunc(); return false">
+				<table id="tableReg">
+					<tr>
+						<td>Логин:</td>
+						<td><input type="text" id="inputLogin" required /></td>
+					</tr>
+					<tr>
+						<td>Пароль:</td>
+						<td><input type="password" id="inputPass" required /></td>
+					</tr>
+				</table>
+				<br><br>
+				<input type="submit" id="buttonReg" value="Войти" />
+				<input type="reset" id="buttonReg" value="Очистить" />
+			</form>
+		</div>
+	</body>
+
+</html>
