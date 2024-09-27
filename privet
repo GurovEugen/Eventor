@@ -1,0 +1,33 @@
+var url = 'somePage.html'; //A local page
+
+function load(url, callback) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      callback(xhr.response);
+    }
+  }
+
+  xhr.open('GET', url, true);
+  xhr.send('');
+}
+
+
+@Path("/hello")
+public class Hello {
+
+    @POST
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public JSONObject sayPlainTextHello(@PathParam("id")JSONObject inputJsonObj) {
+
+        String input = (String) inputJsonObj.get("input");
+        String output="The input you sent is :"+input;
+        JSONObject outputJsonObj = new JSONObject();
+        outputJsonObj.put("output", output);
+
+        return outputJsonObj;
+    }
+} 

@@ -1,0 +1,56 @@
+﻿<html>
+<head>
+    <title>Пользователь</title>
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="styles/user.css">
+    <script src="scripts/user.js"></script>
+    <script src="scripts/model.js"></script>
+    <meta charset="utf-8">
+</head>
+
+<body onload="loadUserPage();" >
+<header>
+    <div class="divHeader">
+        <img class="eventorLogo" src="images/logo.png" />
+        <a title="Назад" class="BackButtonHeader" href="main.html">
+            <img class="BackLogo" src="images/Back.png" />
+        </a>
+    </div>
+</header>
+
+<div id="centerBlock">
+
+    <table id="tableUser" >
+        <tr>
+            <th> <h3 id="FirstName" align="right">Имя: </h3> </th>
+            <th> <h3 id="userFirstName" align="left">имя пользователя</h3> </th>
+        </tr>
+
+        <tr>
+            <th> <h3 id="LastName" align="right">Фамилия: </h3> </th>
+            <th> <h3 id="userLastName" align="left">фамилия пользователя</h3> </th>
+        </tr>
+
+        <tr>
+            <th> <h3 id="BirthDate" align="right">Дата рождения: </h3> </th>
+            <th> <input  type="date" id="userBirthDate" align="left" readonly> </th>
+        </tr>
+        <tr>
+            <th> <h3 id="Gender" align="right">Пол: </h3> </th>
+            <th> <h3 id="userGender" align="left">пол пользователя</h3> </th>
+        </tr>
+        <tr>
+            <th> <h3 id="Bio" align="right">Информация: </h3> </th>
+            <th> <h3 id="userBio" align="left">информация о пользователе</h3> </th>
+        </tr>
+
+
+    </table>
+
+    <img id="Edit" title="Редактировать" class="EditLogo" src="images/Edit.png" onclick="edit()" />
+
+</div>
+
+</body>
+
+</html>
